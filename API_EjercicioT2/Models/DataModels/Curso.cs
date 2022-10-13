@@ -2,6 +2,13 @@
 
 namespace API_EjercicioT2.Models.DataModels
 {
+    public enum Level
+    {
+        Basico,
+        Intermedio,
+        Avanzado
+    }
+
     public class Curso: BaseEntity
     {
         [Required, StringLength(50)]
@@ -9,18 +16,14 @@ namespace API_EjercicioT2.Models.DataModels
         [Required, StringLength(280)]
         public string ShortDescription { get; set; } = string.Empty;
         [Required, StringLength(560)]
-        public string LongDescription { get; set; } = string.Empty;
-        [Required, StringLength(560)]
-        public string PublicObjective { get; set; } = string.Empty;
-        [Required, StringLength(560)]
+        public string Description { get; set; } = string.Empty;
+        [Required]
+        public string PublicObjectives { get; set; } = string.Empty;
+        [Required]
         public string Objectives { get; set; } = string.Empty;
-        [Required, StringLength(560)]
+        [Required]
         public string Requirements { get; set; } = string.Empty;
-        public enum Level
-        {
-            Basico = 1,
-            Intermedio =2,
-            Avanzado = 3,
-        }
+        [Required]
+        public Level Level { get; set; } = Level.Basico;        
     }
 }
